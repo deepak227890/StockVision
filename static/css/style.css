@@ -1,0 +1,121 @@
+/* --- Fintech Dark Mode Theme --- */
+:root {
+    /* Color Palette */
+    --primary-color: #00B8D4;      /* Vibrant Cyan for accents */
+    --background-color: #12121c;   /* Dark charcoal background */
+    --card-background: #1C1C2E;    /* Slightly lighter card background */
+    --text-color: #E0E0E0;         /* Light grey for body text */
+    --heading-color: #FFFFFF;      /* Pure white for headings */
+    --border-color: #3A3A59;       /* Muted purple/grey for borders */
+    --up-color: #28A745;           /* Standard Green for 'UP' */
+    --down-color: #DC3545;         /* Standard Red for 'DOWN' */
+    
+    /* Font */
+    --font-family: 'Inter', sans-serif;
+}
+
+/* --- Body with New Background --- */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    /* Subtle radial gradient for depth */
+    background-image: radial-gradient(circle at 50% 0%, rgba(118, 75, 162, 0.1), rgba(118, 75, 162, 0) 40%);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Header & Footer --- */
+header {
+    background-color: var(--card-background);
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--heading-color);
+}
+header h1 {
+    margin: 0;
+    color: var(--primary-color);
+}
+footer {
+    margin-top: 100px;
+    font-size: 0.9em;
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* --- Search & Results Sections --- */
+/* ### UPDATED - Added a subtle grid background pattern ### */
+#search-section, #results-section {
+    background-color: var(--card-background);
+    /* Subtle SVG grid pattern for a high-tech feel */
+    background-image: linear-gradient(rgba(58, 58, 89, 0.5) 1px, transparent 1px), linear-gradient(to right, rgba(58, 58, 89, 0.5) 1px, transparent 1px);
+    background-size: 20px 20px;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-top: 30px;
+}
+#search-section h2, #results-section h2 {
+    margin-top: 0;
+    color: var(--heading-color);
+}
+#search-section p {
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+/* Form Elements */
+#predict-form { display: flex; justify-content: center; gap: 10px; }
+#company-name { width: 60%; padding: 12px; border: 1px solid var(--border-color); background-color: var(--background-color); color: var(--heading-color); border-radius: 6px; font-size: 1em; }
+#predict-button { background-color: var(--primary-color); color: #000; border: none; padding: 12px 24px; border-radius: 6px; font-size: 1em; font-weight: 700; cursor: pointer; transition: background-color 0.3s, transform 0.1s; display: flex; align-items: center; justify-content: center; min-width: 120px; }
+#predict-button:hover { background-color: #33e5ff; }
+#predict-button:active { transform: scale(0.98); }
+.error-text { color: var(--down-color); margin-top: 15px; font-weight: 500; }
+
+/* Summary Grid */
+#summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; margin-bottom: 30px; }
+.summary-card { background-color: var(--background-color); padding: 20px; border-radius: 6px; border: 1px solid var(--border-color); }
+.card-header { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 15px; }
+.card-header img { width: 24px; height: 24px; }
+.card-header h3 { margin: 0; font-size: 1em; color: var(--text-color); font-weight: 500; }
+.large-text { font-size: 2.5em; font-weight: 700; margin: 0; }
+.up-color { color: var(--up-color); }
+.down-color { color: var(--down-color); }
+
+/* Plot Section */
+#plot-container { text-align: center; border-top: 1px solid var(--border-color); padding-top: 30px; }
+
+/* ### UPDATED - Reduced plot size and centered it ### */
+#plot-image {
+    max-width: 80%; /* Reduced from 100% */
+    display: block;    /* Allows for margin auto centering */
+    margin: 0 auto 20px auto; /* Centers the image */
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: #fff;
+}
+#download-link { display: inline-block; background-color: var(--primary-color); color: #000; font-weight: 700; padding: 10px 20px; text-decoration: none; border-radius: 6px; transition: background-color 0.3s; }
+#download-link:hover { background-color: #33e5ff; }
+
+/* Spinner */
+.spinner { border: 3px solid rgba(255, 255, 255, 0.3); border-radius: 50%; border-top: 3px solid #fff; width: 20px; height: 20px; animation: spin 1s linear infinite; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #predict-form { flex-direction: column; }
+    #company-name { width: 100%; box-sizing: border-box; }
+}
